@@ -16,7 +16,7 @@ public class SimpleSnake implements Snake {
     public SimpleSnake(Point head) {
         this.points = new ArrayList<>();
         this.points.add(head);
-        this.movement = Movement.EAST;
+        this.movement = Movement.NOT_MOVING;
     }
     
     @Override
