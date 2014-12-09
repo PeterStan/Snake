@@ -34,7 +34,7 @@ public class GameCanvas extends Canvas {
     private void drawSnake(Graphics g) {
     	g.setColor(this.snakeColor);
         for (Point p : game.getSnake().getLocations()) {
-        	g.fillRect (
+        	g.fillRect(
        			(int)(blockSize*(p.getX()-1)),
        			(int)(blockSize*(game.getBoard().getHeight() - p.getY())),
        			(int)(blockSize*(p.getY())),
@@ -47,7 +47,7 @@ public class GameCanvas extends Canvas {
      * Draws the Apple
      */
     private void drawApple(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(appleColor);
         g.fillRect(game.getApple().x + blockSize, game.getApple().y + blockSize, 2*blockSize, 2*blockSize);
     }
     
