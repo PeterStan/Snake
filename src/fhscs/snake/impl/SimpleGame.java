@@ -37,6 +37,7 @@ public class SimpleGame implements Game {
     public SimpleGame(Board board) {
         this.board = board;
         this.snake = new SimpleSnake(new Point(board.getWidth()/2, board.getHeight()/2));
+        this.apple = new Point(4,6);
         this.graphics = new GameGraphics(this);
         this.logic = new GameLogic(this);
         this.gameThread = new GameThread(this);

@@ -1,6 +1,7 @@
 package fhscs.snake.impl;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 
 import fhscs.snake.Game;
@@ -34,7 +35,8 @@ public class GameCanvas extends Canvas {
      * Draws the Apple
      */
     private void drawApple(Graphics g) {
-        
+        g.setColor(Color.RED);
+        g.fillRect(game.getApple().x + blockSize, game.getApple().y + blockSize, 2*blockSize, 2*blockSize);
     }
     
     /**
