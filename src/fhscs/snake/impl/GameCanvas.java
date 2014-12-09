@@ -10,6 +10,8 @@ public class GameCanvas extends Canvas {
 
     private final Game game;
     
+    private static final int blockSize = 20;
+    
     public GameCanvas(Game game) {
         this.game = game;
     }
@@ -24,21 +26,21 @@ public class GameCanvas extends Canvas {
     /**
      * Draws the {@link Snake}
      */
-    private static void drawSnake(Graphics g) {
+    private void drawSnake(Graphics g) {
         
     }
     
     /**
      * Draws the Apple
      */
-    private static void drawApple(Graphics g) {
+    private void drawApple(Graphics g) {
         
     }
     
     /**
      * Draws the {@link Board}
      */
-    private static void drawBoard(Graphics g) {
+    private void drawBoard(Graphics g) {
         
     }
     
