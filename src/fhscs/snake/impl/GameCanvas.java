@@ -52,6 +52,7 @@ public class GameCanvas extends Canvas {
     
     /**
      * Set the color of the snake.
+     * 
      * @param c the color of the snake
      */
     public void setSnakeColor(Color c) {
@@ -60,6 +61,7 @@ public class GameCanvas extends Canvas {
     
     /**
      * Returns the color of the snake.
+     * 
      * @return the color of the snake.
      */
     public Color getSnakeColor() { 	
@@ -68,6 +70,7 @@ public class GameCanvas extends Canvas {
 
     /**
      * Returns the color of the apple.
+     * 
      * @return the color of the apple
      */
 	public Color getAppleColor() {
@@ -76,6 +79,7 @@ public class GameCanvas extends Canvas {
 
 	/**
 	 * Set the color of the apple
+	 * 
 	 * @param appleColor the color of the apple
 	 */
 	public void setAppleColor(Color appleColor) {
