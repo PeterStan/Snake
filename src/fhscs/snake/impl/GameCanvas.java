@@ -12,8 +12,9 @@ public class GameCanvas extends Canvas {
 
     private final Game game;
 
-	private Color snakeColor = Color.GREEN;
-	private Color appleColor = Color.RED;
+    private Color snakeColor = Color.GREEN;
+    
+    private Color appleColor = Color.RED;
     
     private static final int blockSize = 20;
     
@@ -32,7 +33,7 @@ public class GameCanvas extends Canvas {
      */
     private void drawSnake(Graphics g) {
         for (Point p : game.getSnake().getLocations()) {
-        	fillBlock(g, snakeColor, p);
+            fillBlock(g, snakeColor, p);
         }
     }
     
