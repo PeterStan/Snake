@@ -44,13 +44,6 @@ public class GameCanvas extends Canvas {
         fillBlock(g, appleColor, game.getApple());
     }
     
-    /**
-     * Draws the {@link Board}
-     */
-    private void drawBoard(Graphics g) {
-        
-    }
-    
     private void fillBlock(Graphics g, Color color, Point point) {
         Color before = g.getColor();
         g.setColor(color);
