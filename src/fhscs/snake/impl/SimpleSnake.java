@@ -4,18 +4,24 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import fhscs.snake.Direction;
+import fhscs.snake.Movement;
 import fhscs.snake.Snake;
 
 public class SimpleSnake implements Snake {
 
     private final List<Point> points;
     
-    private Direction direction;
+    private Movement movement;
     
-    public SimpleSnake() {
+    public SimpleSnake(Point head) {
         this.points = new ArrayList<>();
-        this.direction = Direction.EAST;
+        this.points.add(head);
+        this.movement = Movement.EAST;
+    }
+    
+    @Override
+    public int getSize() {
+        return points.size();
     }
 
     @Override
@@ -25,9 +31,12 @@ public class SimpleSnake implements Snake {
 
     @Override
     public void move() {
+        if(movement == Movement.NOT_MOVING)
+            return;
+        
         points.remove(0);
         Point next = new Point();
-        switch(direction) {
+        switch(movement) {
             case NORTH:
                 next.y++;
                 break;
@@ -40,23 +49,47 @@ public class SimpleSnake implements Snake {
             case WEST:
                 next.x--;
                 break;
+            default:
+                break;
         }
         points.add(next);
     }
 
     @Override
-    public Direction getDirection() {
-        return direction;
+    public Movement getMovement() {
+        return movement;
     }
 
     @Override
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+    public void setMovement(Movement movement) {
+        this.movement = movement;
     }
 
     @Override
     public Point getHead() {
         return points.get(points.size() - 1);
+    }
+
+    @Override
+    public void elongate() {
+        elongate(1);
+    }
+
+    @Override
+    public void shorten() {
+        shorten(1);
+    }
+
+    @Override
+    public void elongate(int amount) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void shorten(int amount) {
+        // TODO Auto-generated method stub
+        
     }
     
 }

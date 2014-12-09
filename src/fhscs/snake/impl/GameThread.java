@@ -1,34 +1,23 @@
 package fhscs.snake.impl;
 
-import java.awt.Point;
-
-import fhscs.snake.Game;
-
 public class GameThread extends Thread {
     
-    private final Game game;
+    private final SimpleGame game;
     
-    public GameThread(Game game) {
+    private static long speed = 1000L;
+    
+    public GameThread(SimpleGame game) {
         this.game = game;
     }
     
     @Override
     public void run() {
         while(game.isRunning()) {
-            game.getSnake().move();
-            Point head = game.getSnake().getHead();
-            
-            if(game.getBoard().isOutside(head)){
-                // TODO: snake is out of bounds
-                return;
-            }
-            
-            if(head.equals(game.getApple())) {
-                // TODO: snake has reached apple
-            }
+            game.getLogicController().run();
+            game.getGraphicsController().update();
             
             try {
-                Thread.sleep(1000L);
+                Thread.sleep(speed);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,10 +1,11 @@
 package fhscs.snake;
 
-public enum Direction {
+public enum Movement {
 
     NORTH,
     SOUTH,
     EAST,
-    WEST
+    WEST,
+    NOT_MOVING
     
 }

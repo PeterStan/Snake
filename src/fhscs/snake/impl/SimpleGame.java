@@ -8,20 +8,46 @@ import fhscs.snake.Snake;
 
 public class SimpleGame implements Game {
 
+    // Game Attributes
+    
     private final Board board;
     
     private final Snake snake;
     
     private Point apple;
+
+    private int score = 0;
+
+    private volatile boolean running = false;
+    
+    // Game Controllers
+    
+    private final GameGraphics graphics;
+    
+    private final GameLogic logic;
     
     private final GameThread gameThread;
     
-    private volatile boolean running = false;
+    // Implementation
     
     public SimpleGame() {
-        this.board = new SimpleBoard();
-        this.snake = new SimpleSnake();
+        this(new SimpleBoard());
+    }
+    
+    public SimpleGame(Board board) {
+        this.board = board;
+        this.snake = new SimpleSnake(new Point(board.getWidth()/2, board.getHeight()/2));
+        this.graphics = new GameGraphics(this);
+        this.logic = new GameLogic(this);
         this.gameThread = new GameThread(this);
+    }
+    
+    public GameGraphics getGraphicsController() {
+        return graphics;
+    }
+    
+    public GameLogic getLogicController() {
+        return logic;
     }
     
     public Snake getSnake() {
@@ -40,9 +66,49 @@ public class SimpleGame implements Game {
         return running;
     }
     
-    public void start() {
-        this.running = true;
-        gameThread.start();
+    public void setRunning(boolean running) {
+        if(this.running != running) {
+            this.running = running;
+            
+            if(running) {
+                // Now the game is running
+                System.out.println("Snake Game Starting!");
+                gameThread.start();
+            } else {
+                // The game is stopping
+                System.out.println("Snake Game Stopping!");
+            }
+        }
+    }
+
+    @Override
+    public int getScore() {
+        return this.score;
+    }
+
+    @Override
+    public void incrememntScore() {
+        this.score++;
+    }
+
+    @Override
+    public void decrementScore() {
+        this.score--;
+    }
+
+    @Override
+    public void incrementScore(int amount) {
+        this.score += amount;
+    }
+
+    @Override
+    public void decrementScore(int amount) {
+        this.score -= amount;
+    }
+
+    @Override
+    public void setScore(int score) {
+        this.score = score;
     }
     
 }

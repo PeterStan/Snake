@@ -5,18 +5,20 @@ import java.awt.Point;
 /**
  * Represents the board that the snake game plays on,
  * a grid of squares.
+ * 
+ * The bottom-left corner is (1,1), the top-right corner is (width, height)
  */
 public interface Board {
 
     /**
      * 
-     * @return the number of squares in the horizontal direction
+     * @return the number of squares in the horizontal movement
      */
     int getWidth();
     
     /**
      * 
-     * @return the number of squares in the vertical direction
+     * @return the number of squares in the vertical movement
      */
     int getHeight();
     

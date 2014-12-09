@@ -18,7 +18,7 @@ public class SimpleBoard implements Board {
     }
     
     public SimpleBoard() {
-        this(50, 50);
+        this(30, 20);
     }
     
     public int getWidth() {

@@ -6,6 +6,12 @@ import java.util.List;
 public interface Snake {
     
     /**
+     * 
+     * @return the size of the snake
+     */
+    int getSize();
+    
+    /**
      * Get the list of locations that compose the snake's body.
      * 
      * @return a list of points representing the locations the snake occupies
@@ -14,9 +20,9 @@ public interface Snake {
     
     /**
      * 
-     * @return the snake's current{@link Direction} of motion
+     * @return the snake's current{@link Movement} of motion
      */
-    Direction getDirection();
+    Movement getMovement();
     
     /**
      * 
@@ -25,15 +31,39 @@ public interface Snake {
     Point getHead();
     
     /**
-     * Set the {@link Direction} of the snake's motion
+     * Set the {@link Movement} of the snake's motion
      * 
-     * @param direction the new direction that the snake should move in
+     * @param movement the new movement that the snake should move in
      */
-    void setDirection(Direction direction);
+    void setMovement(Movement movement);
     
     /**
-     * Moves the snake one square in the direction of motion
+     * Moves the snake one square in the movement of motion
      */
     void move();
+    
+    /**
+     * Elongate the snake by adding 1 block to its tail
+     */
+    void elongate();
+    
+    /**
+     * Shorten the snake by removing 1 block from its tail
+     */
+    void shorten();
+    
+    /**
+     * Elongate the snake by the given amount by adding blocks to its tail
+     * 
+     * @param amount the amount to elongate the snake by
+     */
+    void elongate(int amount);
+    
+    /**
+     * Shorten the snake by the given amount by removing blocks from its tail
+     * 
+     * @param amount the amount to shorten the snake by
+     */
+    void shorten(int amount);
     
 }
