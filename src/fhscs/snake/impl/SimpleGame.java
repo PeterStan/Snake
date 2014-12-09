@@ -87,7 +87,7 @@ public class SimpleGame implements Game {
     }
 
     @Override
-    public void incrememntScore() {
+    public void incrementScore() {
         this.score++;
     }
 

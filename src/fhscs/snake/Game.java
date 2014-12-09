@@ -34,7 +34,7 @@ public interface Game {
     /**
      * Increments the score by 1
      */
-    void incrememntScore();
+    void incrementScore();
     
     /**
      * Decrements the score by 1
