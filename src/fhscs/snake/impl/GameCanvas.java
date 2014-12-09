@@ -25,7 +25,6 @@ public class GameCanvas extends Canvas {
     public void paint(Graphics g) {
         drawSnake(g);
         drawApple(g);
-        drawBoard(g);
     }
     
     /**
