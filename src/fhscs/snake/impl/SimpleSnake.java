@@ -34,8 +34,7 @@ public class SimpleSnake implements Snake {
         if(movement == Movement.NOT_MOVING)
             return;
         
-        points.remove(0);
-        Point next = new Point();
+        Point next = getHead();
         switch(movement) {
             case NORTH:
                 next.y++;
@@ -53,6 +52,7 @@ public class SimpleSnake implements Snake {
                 break;
         }
         points.add(next);
+        points.remove(0);
     }
 
     @Override
@@ -90,6 +90,10 @@ public class SimpleSnake implements Snake {
     public void shorten(int amount) {
         // TODO Auto-generated method stub
         
+    }
+    
+    public String toString() {
+        return "Snake{movement='" + movement + "'}";
     }
     
 }

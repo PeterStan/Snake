@@ -14,7 +14,7 @@ public class GameCanvas extends Canvas {
     
     private final ColorPalette palette;
     
-    private static final int blockSize = 20;
+    public static final int blockSize = 20;
     
     public GameCanvas(Game game) {
         this.game = game;
@@ -24,8 +24,8 @@ public class GameCanvas extends Canvas {
     
     @Override
     public void paint(Graphics g) {
-        drawSnake(g);
         drawApple(g);
+        drawSnake(g);
     }
     
     /**

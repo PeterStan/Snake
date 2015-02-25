@@ -4,7 +4,7 @@ public class GameThread extends Thread {
     
     private final SimpleGame game;
     
-    private static long speed = 1000L;
+    private static long speed = 100L;
     
     public GameThread(SimpleGame game) {
         this.game = game;
@@ -15,7 +15,6 @@ public class GameThread extends Thread {
         while(game.isRunning()) {
             game.getLogicController().run();
             game.getGraphicsController().update();
-            
             try {
                 Thread.sleep(speed);
             } catch (InterruptedException e) {
