@@ -18,7 +18,7 @@ public class SimpleGame implements Game {
 
     private int score = 0;
 
-    private volatile boolean running = false;
+    private volatile boolean running = true;
     
     // Game Controllers
     
@@ -38,9 +38,10 @@ public class SimpleGame implements Game {
         this.board = board;
         this.snake = new SimpleSnake(new Point(board.getWidth()/2, board.getHeight()/2));
         this.apple = new Point(4,6);
-        this.graphics = new GameGraphics(this);
+        
         this.logic = new GameLogic(this);
         this.gameThread = new GameThread(this);
+        this.graphics = new GameGraphics(this);
     }
     
     public GameGraphics getGraphicsController() {
@@ -68,9 +69,9 @@ public class SimpleGame implements Game {
     }
     
     public void setRunning(boolean running) {
-        if(this.running != running) {
+       if(this.running != running) {
             this.running = running;
-            
+       }
             if(running) {
                 // Now the game is running
                 System.out.println("Snake Game Starting!");
@@ -79,7 +80,8 @@ public class SimpleGame implements Game {
                 // The game is stopping
                 System.out.println("Snake Game Stopping!");
             }
-        }
+            System.out.println("runinng: " + running);
+          
     }
 
     @Override

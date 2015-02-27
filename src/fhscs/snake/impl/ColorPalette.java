@@ -8,6 +8,6 @@ public class ColorPalette {
     
     public Color APPLE = Color.RED;
     
-    public Color BACKGROUND = Color.WHITE;
+    public Color BACKGROUND = Color.LIGHT_GRAY;
     
 }

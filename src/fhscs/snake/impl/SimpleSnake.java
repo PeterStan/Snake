@@ -16,6 +16,9 @@ public class SimpleSnake implements Snake {
     public SimpleSnake(Point head) {
         this.points = new ArrayList<>();
         this.points.add(head);
+        this.points.add(new Point(head.x+1,head.y));
+        this.points.add(head);
+        this.points.add(head);
         this.movement = Movement.NOT_MOVING;
     }
     
@@ -33,14 +36,14 @@ public class SimpleSnake implements Snake {
     public void move() {
         if(movement == Movement.NOT_MOVING)
             return;
-        
+        //TODO movement
         Point next = getHead();
         switch(movement) {
             case NORTH:
-                next.y++;
+                next.y--;
                 break;
             case SOUTH:
-                next.y--;
+                next.y++;
                 break;
             case EAST:
                 next.x++;
@@ -51,6 +54,7 @@ public class SimpleSnake implements Snake {
             default:
                 break;
         }
+        System.out.println(points + "\n");
         points.add(next);
         points.remove(0);
     }
@@ -88,7 +92,9 @@ public class SimpleSnake implements Snake {
 
     @Override
     public void shorten(int amount) {
-        // TODO Auto-generated method stub
+        for(int i = 0; i < amount; i++){
+        	points.remove(0);
+        }
         
     }
     

@@ -21,6 +21,7 @@ public class GameThread extends Thread {
                 e.printStackTrace();
             }
         }
+        game.getGraphicsController().closeWin();
     }
     
 }

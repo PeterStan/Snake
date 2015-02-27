@@ -21,6 +21,7 @@ public class GameLogic implements Runnable {
         game.getSnake().move();
         Point head = game.getSnake().getHead();
         
+        //if outside
         if(game.getBoard().isOutside(head)){
             game.setRunning(false);
         } else if(head.equals(game.getApple())) {

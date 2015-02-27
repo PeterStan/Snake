@@ -26,6 +26,7 @@ public class GameCanvas extends Canvas {
     public void paint(Graphics g) {
         drawApple(g);
         drawSnake(g);
+        drawBoard(g);
     }
     
     /**
@@ -42,6 +43,14 @@ public class GameCanvas extends Canvas {
      */
     private void drawApple(Graphics g) {
         fillBlock(g, palette.APPLE, game.getApple());
+    }
+    
+    /**
+     * 
+     * Draws the Board
+     */
+    private void drawBoard(Graphics g){
+    	g.drawRect(0, 0, game.getBoard().getWidth()*(blockSize)+(4*blockSize), game.getBoard().getHeight()*(blockSize)+(4*blockSize));
     }
     
     private void fillBlock(Graphics g, Color color, Point point) {

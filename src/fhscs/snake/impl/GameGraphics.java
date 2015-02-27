@@ -22,6 +22,7 @@ public class GameGraphics {
         frame.setVisible(true);
         frame.setFocusable(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
         this.canvas = new GameCanvas(game);
         frame.add(canvas);
         this.keyListener = new SnakeKeyListener(game);
@@ -36,5 +37,9 @@ public class GameGraphics {
         canvas.validate();
         canvas.repaint();
     }
-    
+   
+    public void closeWin(){
+    	frame.setVisible(false); 
+    	frame.dispose();
+    }
 }
