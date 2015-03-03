@@ -31,6 +31,12 @@ public interface Snake {
     Point getHead();
     
     /**
+     * 
+     * @return the location of the snake's tail
+     */
+    Point getTail();
+    
+    /**
      * Set the {@link Movement} of the snake's motion
      * 
      * @param movement the new movement that the snake should move in

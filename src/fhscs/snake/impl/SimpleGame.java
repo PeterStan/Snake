@@ -113,5 +113,6 @@ public class SimpleGame implements Game {
     public void setScore(int score) {
         this.score = score;
     }
+		
     
 }

@@ -8,6 +8,7 @@ import fhscs.snake.Board;
 public class SimpleBoard implements Board {
 
     private final Dimension dimensions;
+    private int score;
     
     public SimpleBoard(Dimension dimensions) {
         this.dimensions = dimensions;
@@ -31,6 +32,26 @@ public class SimpleBoard implements Board {
     
     public boolean isOutside(Point point) {
         return point.x > dimensions.width || point.y > dimensions.height || point.x < 0 || point.y < 0;
+    }
+    
+    @Override
+    public int getScore() {
+        return this.score;
+    }
+
+    @Override
+    public void incrementScore() {
+        this.score++;
+    }
+
+    @Override
+    public void incrementScore(int amount) {
+        this.score += amount;
+    }
+
+    @Override
+    public void setScore(int score) {
+        this.score = score;
     }
     
 }

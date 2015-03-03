@@ -54,6 +54,7 @@ public class SimpleSnake implements Snake {
             default:
                 break;
         }
+        //**********************
         System.out.println(points + "\n");
         points.add(next);
         points.remove(0);
@@ -71,7 +72,12 @@ public class SimpleSnake implements Snake {
 
     @Override
     public Point getHead() {
-        return points.get(points.size() - 1);
+        return points.get(0);
+    }
+    
+    @Override
+    public Point getTail(){
+    	 return points.get(points.size() - 1);
     }
 
     @Override

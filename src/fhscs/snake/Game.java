@@ -23,6 +23,7 @@ public interface Game {
      * 
      * @return the {@link Board} for this game
      */
+    
     Board getBoard();
     
     /**

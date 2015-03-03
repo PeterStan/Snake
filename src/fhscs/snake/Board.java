@@ -30,4 +30,27 @@ public interface Board {
      */
     boolean isOutside(Point point);
     
+    /**
+     * 
+     * @param score
+     */
+    void setScore(int score);
+    
+    /**
+     * 
+     * @param incerase score by this amount
+     */
+    void incrementScore(int amount);
+    
+    /**
+     * increase score
+     */
+    void incrementScore();
+
+    /**
+     * 
+     * @return score
+     */
+	int getScore();
+    
 }
