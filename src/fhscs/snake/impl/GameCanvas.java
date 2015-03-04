@@ -42,7 +42,7 @@ public class GameCanvas extends Canvas {
      * Draws the Apple
      */
     private void drawApple(Graphics g) {
-        fillBlock(g, palette.APPLE, game.getApple());
+        fillBlock(g, palette.APPLE, game.getApple().getLocation());
     }
     
     /**
@@ -51,6 +51,7 @@ public class GameCanvas extends Canvas {
      */
     private void drawBoard(Graphics g){
     	g.drawRect(0, 0, game.getBoard().getWidth()*(blockSize)+(4*blockSize), game.getBoard().getHeight()*(blockSize)+(4*blockSize));
+    	g.drawString(String.valueOf(game.getBoard().getScore()), game.getBoard().getWidth()-10, game.getBoard().getHeight()+10);
     }
     
     private void fillBlock(Graphics g, Color color, Point point) {

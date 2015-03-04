@@ -11,12 +11,6 @@ public interface Apple {
 	Point getLocation();
 	
 	/**
-	 * 
-	 * @param front point of snake
-	 */
-	void eatApple(Snake snake);
-	
-	/**
 	 * randomizes location of apple
 	 */
 	void newApple();

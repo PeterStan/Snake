@@ -1,7 +1,5 @@
 package fhscs.snake;
 
-import java.awt.Point;
-
 /**
  * Represents a game of classic Snake
  */
@@ -17,7 +15,7 @@ public interface Game {
      * 
      * @return the current location of the apple being displayed on the screen
      */
-    Point getApple();
+    Apple getApple();
     
     /**
      * 

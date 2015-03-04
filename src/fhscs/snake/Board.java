@@ -51,6 +51,17 @@ public interface Board {
      * 
      * @return score
      */
-	int getScore();
+    int getScore();
     
+	/**
+	 * 
+	 * @param Score
+	 */
+	void logScore(int Score);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	int readScoreLog();
 }

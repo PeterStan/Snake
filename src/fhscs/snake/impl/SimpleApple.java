@@ -15,13 +15,22 @@ public class SimpleApple implements Apple {
 	public SimpleApple(Board board) {
 		this.board = board;
 	}
+	
+	public SimpleApple(Board board, int x, int y){
+		this.board = board;
+		a = new Point( x, y);
+		
+	}
 
 	@Override
 	public Point getLocation() {
 		return a;
 	}
 
-	@Override
+	/**
+	 * checks whether snake eats apple
+	 * @param snake
+	 */
 	public void eatApple(Snake snake) {
 		if(snake.getHead().equals(a)){
 			snake.elongate();
