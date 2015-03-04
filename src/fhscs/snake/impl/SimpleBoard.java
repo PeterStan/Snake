@@ -2,6 +2,9 @@ package fhscs.snake.impl;
 
 import java.awt.Dimension;
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -77,7 +80,24 @@ public class SimpleBoard implements Board {
 	@Override
 	public int readScoreLog() {
 		// TODO Auto-generated method stub
+		
+		BufferedReader log;
+		try {
+			log = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\Log\\ScoreLog.sn"));
+			log.readLine();
+			// stuff
+			log.close();
+		} catch (IOException e) {
+			System.out.println("File Not Found");
+			e.printStackTrace();
+		}
+
 		return 0;
+	}
+
+	@Override
+	public int getHighScore() {
+		return highScore;
 	}
     
 }

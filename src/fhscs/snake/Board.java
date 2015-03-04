@@ -53,6 +53,12 @@ public interface Board {
      */
     int getScore();
     
+    /**
+     * 
+     * @return high score
+     */
+    int getHighScore();
+    
 	/**
 	 * 
 	 * @param Score
