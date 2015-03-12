@@ -57,7 +57,7 @@ public interface Board {
      * 
      * @return high score
      */
-    int getHighScore();
+    String getHighScore();
     
 	/**
 	 * 
@@ -69,5 +69,5 @@ public interface Board {
 	 * 
 	 * @return
 	 */
-	int readScoreLog();
+	String readScoreLog();
 }
