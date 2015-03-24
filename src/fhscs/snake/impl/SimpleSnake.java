@@ -18,7 +18,6 @@ public class SimpleSnake implements Snake {
         this.points.add(head);
         this.points.add(new Point(head.x+1,head.y));
         this.points.add(head);
-        this.points.add(head);
         this.movement = Movement.NOT_MOVING;
     }
     
@@ -37,7 +36,9 @@ public class SimpleSnake implements Snake {
         if(movement == Movement.NOT_MOVING)
             return;
         //TODO movement
-        Point next = getHead();
+        //Point next = getHead();
+        Point next = points.get(0);
+        points.remove(0);
         switch(movement) {
             case NORTH:
                 next.y--;
@@ -55,9 +56,10 @@ public class SimpleSnake implements Snake {
                 break;
         }
         //**********************
-        System.out.println(points + "\n");
-        points.add(next);
-        points.remove(0);
+        System.out.println(points + "\n"  + next);
+        
+        points.add(getSize()-1, next);
+
     }
 
     @Override
