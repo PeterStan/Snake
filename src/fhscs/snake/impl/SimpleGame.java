@@ -76,7 +76,6 @@ public class SimpleGame implements Game {
                 // Now the game is running
                 System.out.println("Snake Game Starting!");
                 gameThread.start();
-                //TODO timer.schdule
             } else {
                 // The game is stopping
                 System.out.println("Snake Game Stopping!");
