@@ -1,6 +1,7 @@
 package fhscs.snake.impl;
 
 import java.awt.Point;
+import java.util.Timer;
 
 import fhscs.snake.Board;
 import fhscs.snake.Game;
@@ -26,7 +27,9 @@ public class SimpleGame implements Game {
     
     private final GameLogic logic;
     
-    private final GameThread gameThread;
+    private final Timer gameTimer;
+    
+    private final SnakeTask task;
     
     // Implementation
     
@@ -40,7 +43,10 @@ public class SimpleGame implements Game {
         this.apple = new SimpleApple(board,4,6);
         
         this.logic = new GameLogic(this);
-        this.gameThread = new GameThread(this);
+        
+        this.gameTimer = new Timer();
+        this.task = new SnakeTask(this);
+        
         this.graphics = new GameGraphics(this);
     }
     
@@ -75,11 +81,11 @@ public class SimpleGame implements Game {
             if(running) {
                 // Now the game is running
                 System.out.println("Snake Game Starting!");
-                gameThread.start();
-                //TODO timer.schdule
+                gameTimer.schedule(task, 0, 100);
             } else {
                 // The game is stopping
                 System.out.println("Snake Game Stopping!");
+                graphics.closeWin();
             }
             System.out.println("runinng: " + running);
           

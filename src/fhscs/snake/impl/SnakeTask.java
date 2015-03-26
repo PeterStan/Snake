@@ -16,11 +16,12 @@ public class SnakeTask extends TimerTask {
 
 	@Override
 	public void run() {
-        while(game.isRunning()) {
+        if(game.isRunning()) {
             game.getLogicController().run();
             game.getGraphicsController().update();
-        }
-        game.getGraphicsController().closeWin();
+        }  
 	}
+	
+	
 
 }

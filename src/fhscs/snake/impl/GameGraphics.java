@@ -27,6 +27,8 @@ public class GameGraphics {
         frame.add(canvas);
         this.keyListener = new SnakeKeyListener(game);
         canvas.addKeyListener(keyListener);
+        canvas.setFocusable(true);
+        canvas.setVisible(true);
     }
     
     /**

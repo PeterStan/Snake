@@ -10,13 +10,19 @@ import fhscs.snake.Snake;
 public class SimpleSnake implements Snake {
 
     private final List<Point> points;
+    private Point nextPoint = new Point();
     
     private Movement movement;
     
     public SimpleSnake(Point head) {
         this.points = new ArrayList<>();
+        this.nextPoint = head;
         this.points.add(head);
-        this.points.add(new Point(head.x+1,head.y));
+       // this.points.add(new Point(head.x+1,head.y));
+        this.points.add(head);
+        this.points.add(head);
+        this.points.add(head);
+        this.points.add(head);
         this.points.add(head);
         this.movement = Movement.NOT_MOVING;
     }
@@ -37,28 +43,27 @@ public class SimpleSnake implements Snake {
             return;
         //TODO movement
         //Point next = getHead();
-        Point next = points.get(0);
         points.remove(0);
         switch(movement) {
             case NORTH:
-                next.y--;
+                nextPoint.y--;
                 break;
             case SOUTH:
-                next.y++;
+                nextPoint.y++;
                 break;
             case EAST:
-                next.x++;
+                nextPoint.x++;
                 break;
             case WEST:
-                next.x--;
+                nextPoint.x--;
                 break;
             default:
                 break;
         }
         //**********************
-        System.out.println(points + "\n"  + next);
+        System.out.println(points + "\n");
         
-        points.add(getSize()-1, next);
+        points.add(nextPoint);
 
     }
 

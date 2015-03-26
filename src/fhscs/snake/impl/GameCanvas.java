@@ -14,7 +14,7 @@ public class GameCanvas extends Canvas {
     
     private final ColorPalette palette;
     
-    public static final int blockSize = 20;
+    public static final int blockSize = 10;
     
     public GameCanvas(Game game) {
         this.game = game;
@@ -50,9 +50,9 @@ public class GameCanvas extends Canvas {
      * Draws the Board
      */
     private void drawBoard(Graphics g){
-    	g.drawRect(0, 0, game.getBoard().getWidth()*(blockSize)+(4*blockSize), game.getBoard().getHeight()*(blockSize)+(4*blockSize));
-    	g.drawString(String.valueOf(game.getBoard().getScore()), (game.getBoard().getWidth()*blockSize)-10, (game.getBoard().getHeight()*blockSize)+10);
-    	g.drawString( String.valueOf(game.getBoard().getHighScore()), blockSize, (game.getBoard().getHeight()*blockSize)+10);
+    	g.drawRect(blockSize, blockSize, (game.getBoard().getWidth()*(blockSize))+(2*blockSize), (game.getBoard().getHeight()*(blockSize))+(2*blockSize));
+    	g.drawString(String.valueOf(game.getBoard().getScore()), (game.getBoard().getWidth()*blockSize), (game.getBoard().getHeight()*blockSize));
+    	g.drawString( String.valueOf(game.getBoard().getHighScore()), 2*blockSize, (game.getBoard().getHeight()*blockSize));
     }
     
     private void fillBlock(Graphics g, Color color, Point point) {
