@@ -10,7 +10,7 @@ import fhscs.snake.Snake;
 public class SimpleSnake implements Snake {
 
     private final List<Point> points;
-    private Point nextPoint = new Point();
+    private Point nextPoint;
     
     private Movement movement;
     
@@ -41,8 +41,7 @@ public class SimpleSnake implements Snake {
     public void move() {
         if(movement == Movement.NOT_MOVING)
             return;
-        //TODO movement
-        //Point next = getHead();
+        
         points.remove(0);
         switch(movement) {
             case NORTH:
@@ -60,10 +59,9 @@ public class SimpleSnake implements Snake {
             default:
                 break;
         }
-        //**********************
-        System.out.println(points + "\n");
         
-        points.add(nextPoint);
+        points.add(new Point((int) nextPoint.getX(),(int)nextPoint.getY()));
+        System.out.println(points + "\n");
 
     }
 
@@ -78,12 +76,12 @@ public class SimpleSnake implements Snake {
     }
 
     @Override
-    public Point getHead() {
+    public Point getTail() {
         return points.get(0);
     }
     
     @Override
-    public Point getTail(){
+    public Point getHead(){
     	 return points.get(points.size() - 1);
     }
 
@@ -99,8 +97,8 @@ public class SimpleSnake implements Snake {
 
     @Override
     public void elongate(int amount) {
-        // TODO Auto-generated method stub
-        
+       for(int i = 0; i < amount; i++){
+       }
     }
 
     @Override

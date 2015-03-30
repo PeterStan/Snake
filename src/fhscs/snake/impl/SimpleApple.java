@@ -14,6 +14,7 @@ public class SimpleApple implements Apple {
 	
 	public SimpleApple(Board board) {
 		this.board = board;
+		newApple();
 	}
 	
 	public SimpleApple(Board board, int x, int y){

@@ -14,5 +14,7 @@ public interface Apple {
 	 * randomizes location of apple
 	 */
 	void newApple();
+
+	void eatApple(Snake snake);
 	
 }

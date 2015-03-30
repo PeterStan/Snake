@@ -20,7 +20,7 @@ public class GameLogic implements Runnable {
     public void run() {
         game.getSnake().move();
         Point head = game.getSnake().getHead();
-        
+        game.getApple().eatApple(game.getSnake());
         //if outside
         if(game.getBoard().isOutside(head)){
             game.setRunning(false);
@@ -29,6 +29,9 @@ public class GameLogic implements Runnable {
          else if(head.equals(game.getApple())) {
             game.getSnake().elongate();
             game.getBoard().incrementScore();
+            game.getApple().eatApple(game.getSnake());
+            //new apple
+          
             
         }
         
