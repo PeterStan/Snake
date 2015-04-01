@@ -34,7 +34,7 @@ public class SimpleApple implements Apple {
 	 */
 	public void eatApple(Snake snake) {
 		if(snake.getHead().equals(a)){
-			snake.elongate();
+			snake.elongate(2);
 			board.incrementScore();
 			newApple();
 		}

@@ -25,9 +25,11 @@ public class GameLogic implements Runnable {
         if(game.getBoard().isOutside(head)){
             game.setRunning(false);
         } 
+        else if(game.getSnake().checkSnake(game.getSnake().getHead())){
+        	game.setRunning(false);
+        }
         
          else if(head.equals(game.getApple())) {
-            game.getSnake().elongate();
             game.getBoard().incrementScore();
             game.getApple().eatApple(game.getSnake());
             //new apple

@@ -71,5 +71,12 @@ public interface Snake {
      * @param amount the amount to shorten the snake by
      */
     void shorten(int amount);
+
+    /**
+     * 
+     * @param head
+     * @return true if snake ate snake
+     */
+	boolean checkSnake(Point head);
     
 }
