@@ -46,7 +46,7 @@ public class GameCanvas extends Canvas {
     }
     
     /**
-     * 
+     *  
      * Draws the Board
      */
     private void drawBoard(Graphics g){

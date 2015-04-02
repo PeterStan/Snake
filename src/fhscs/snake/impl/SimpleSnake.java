@@ -67,7 +67,7 @@ public class SimpleSnake implements Snake {
         }
         
         points.add(new Point((int) nextPoint.getX(),(int)nextPoint.getY()));
-        System.out.println(points + "\n");
+        //System.out.println(points + "\n");
 
     }
 
