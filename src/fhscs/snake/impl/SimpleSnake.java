@@ -18,12 +18,7 @@ public class SimpleSnake implements Snake {
         this.points = new ArrayList<>();
         this.nextPoint = head;
         this.points.add(head);
-       // this.points.add(new Point(head.x+1,head.y));
-        this.points.add(head);
-        this.points.add(head);
-        this.points.add(head);
-        this.points.add(head);
-        this.points.add(head);
+        this.points.add(new Point(head));
         this.movement = Movement.NOT_MOVING;
     }
     
@@ -32,6 +27,17 @@ public class SimpleSnake implements Snake {
         return points.size();
     }
 
+    public boolean checkSnake(Point head){
+    	//         added extra for neck *V*  behind snake head
+    	for(int i = 0; i < points.size()-2;i++){
+    		if(head.equals(points.get(i))){
+    			return true;
+    		}
+    	}
+    	
+		return false;
+    }
+    
     @Override
     public List<Point> getLocations() {
         return points;
@@ -98,6 +104,7 @@ public class SimpleSnake implements Snake {
     @Override
     public void elongate(int amount) {
        for(int i = 0; i < amount; i++){
+    	points.add(0, getTail());
        }
     }
 

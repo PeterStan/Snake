@@ -29,6 +29,8 @@ public class SimpleGame implements Game {
     
     private final Timer gameTimer;
     
+    private final int runSpeed = 60;
+    
     private final SnakeTask task;
     
     // Implementation
@@ -81,7 +83,7 @@ public class SimpleGame implements Game {
             if(running) {
                 // Now the game is running
                 System.out.println("Snake Game Starting!");
-                gameTimer.schedule(task, 0, 100);
+                gameTimer.schedule(task, 0, runSpeed);
             } else {
                 // The game is stopping
                 System.out.println("Snake Game Stopping!");

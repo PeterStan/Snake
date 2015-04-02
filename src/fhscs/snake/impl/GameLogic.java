@@ -25,6 +25,7 @@ public class GameLogic implements Runnable {
         if(game.getBoard().isOutside(head)){
             game.setRunning(false);
         } 
+        //if snake is on top of snake
         else if(game.getSnake().checkSnake(game.getSnake().getHead())){
         	game.setRunning(false);
         }
