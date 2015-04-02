@@ -24,42 +24,7 @@ public interface Game {
     
     Board getBoard();
     
-    /**
-     * 
-     * @return the current score
-     */
-    int getScore();
-    
-    /**
-     * Increments the score by 1
-     */
-    void incrementScore();
-    
-    /**
-     * Decrements the score by 1
-     */
-    void decrementScore();
-    
-    /**
-     * Increments the score by the given amount
-     * 
-     * @param amount the amount to increment by
-     */
-    void incrementScore(int amount);
-    
-    /**
-     * Decrements the score by the given amount
-     * 
-     * @param amount the amount to decrement by
-     */
-    void decrementScore(int amount);
-    
-    /**
-     * Sets the score to the current value
-     * 
-     * @param score the new score
-     */
-    void setScore(int score);
+
     
     /**
      * Get whether or not the game is running.

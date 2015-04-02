@@ -32,10 +32,14 @@ public class GameLogic implements Runnable {
         
          else if(head.equals(game.getApple())) {
             game.getBoard().incrementScore();
-            game.getApple().eatApple(game.getSnake());
-            //new apple
-          
-            
+            game.getApple().eatApple(game.getSnake());  
+        }
+        
+        if(game.getBoard().getHighScore() < game.getBoard().getScore())
+        {
+        	game.getBoard().setHighScore(game.getBoard().getScore());
+        	game.getBoard().logScore(game.getBoard().getScore());
+        	// log score
         }
         
     }

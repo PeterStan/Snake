@@ -57,7 +57,12 @@ public interface Board {
      * 
      * @return high score
      */
-    String getHighScore();
+    int getHighScore();
+    
+    /**
+     * set the value of the high score
+     */
+    void setHighScore(int score);
     
 	/**
 	 * 
@@ -69,5 +74,5 @@ public interface Board {
 	 * 
 	 * @return
 	 */
-	String readScoreLog();
+	int readScoreLog();
 }

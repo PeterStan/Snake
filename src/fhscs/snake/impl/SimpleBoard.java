@@ -14,7 +14,7 @@ public class SimpleBoard implements Board {
 
     private final Dimension dimensions;
     private int score;
-    private String highScore;
+    private int highScore;
     
     public SimpleBoard(Dimension dimensions) {
         this.dimensions = dimensions;
@@ -78,7 +78,7 @@ public class SimpleBoard implements Board {
 	}
 
 	@Override
-	public String readScoreLog() {
+	public int readScoreLog() {
 		
 		BufferedReader log;
 		String score = null;
@@ -89,13 +89,19 @@ public class SimpleBoard implements Board {
 		} catch (IOException e) {
 			System.out.println("File Not Found");
 			e.printStackTrace();
-		}
-		return score;
+		}	
+		return Integer.parseInt(score);
 	}
 
 	@Override
-	public String getHighScore() {
+	public int getHighScore() {
 		return highScore;
+	}
+
+	@Override
+	public void setHighScore(int score) {
+		highScore = score;
+		
 	}
     
 }

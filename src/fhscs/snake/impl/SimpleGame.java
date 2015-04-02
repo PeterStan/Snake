@@ -17,8 +17,6 @@ public class SimpleGame implements Game {
     
     private SimpleApple apple;
 
-    private int score = 0;
-
     private volatile boolean running = true;
     
     // Game Controllers
@@ -91,37 +89,6 @@ public class SimpleGame implements Game {
             }
             System.out.println("runinng: " + running);
           
-    }
-
-    @Override
-    public int getScore() {
-        return this.score;
-    }
-
-    @Override
-    public void incrementScore() {
-        this.score++;
-    }
-
-    @Override
-    public void decrementScore() {
-        this.score--;
-    }
-
-    @Override
-    public void incrementScore(int amount) {
-        this.score += amount;
-    }
-
-    @Override
-    public void decrementScore(int amount) {
-        this.score -= amount;
-    }
-
-    @Override
-    public void setScore(int score) {
-        this.score = score;
-    }
-		
+    }	
     
 }
