@@ -51,7 +51,11 @@ public class GameCanvas extends Canvas {
      */
     private void drawBoard(Graphics g){
     	g.drawRect(blockSize, blockSize, (game.getBoard().getWidth()*(blockSize))+(2*blockSize), (game.getBoard().getHeight()*(blockSize))+(2*blockSize));
+    	
+    	g.drawString("Score", (game.getBoard().getWidth()*blockSize) - 2*blockSize, (game.getBoard().getHeight()*blockSize) - 2*blockSize);
     	g.drawString(String.valueOf(game.getBoard().getScore()), (game.getBoard().getWidth()*blockSize), (game.getBoard().getHeight()*blockSize));
+    	
+    	g.drawString("HighScore", 2*blockSize, (game.getBoard().getHeight()*blockSize) - 2*blockSize);
     	g.drawString( String.valueOf(game.getBoard().getHighScore()), 2*blockSize, (game.getBoard().getHeight()*blockSize));
     }
     
