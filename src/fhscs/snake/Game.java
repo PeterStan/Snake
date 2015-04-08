@@ -41,4 +41,12 @@ public interface Game {
      */
     void setRunning(boolean running);
     
+    void pauseGame();
+    
+    void resumeGame();
+    
+    boolean isPaused();
+    
+    void setPaused(boolean paused);
+    
 }

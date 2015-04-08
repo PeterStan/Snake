@@ -20,6 +20,13 @@ public class SnakeKeyListener implements KeyListener {
         if(movement != null) {
             game.getSnake().setMovement(movement);
         }
+        if(e.getKeyCode() == KeyEvent.VK_P){
+        	if(game.isPaused())
+        		game.resumeGame();
+        	else
+        		game.pauseGame();
+        }
+        	
     }
     
     private Movement getMovement(int keyCode) {

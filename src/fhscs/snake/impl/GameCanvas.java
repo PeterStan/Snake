@@ -14,7 +14,7 @@ public class GameCanvas extends Canvas {
     
     private final ColorPalette palette;
     
-    public static final int blockSize = 10;
+    public static final int blockSize = 15;
     
     public GameCanvas(Game game) {
         this.game = game;
@@ -62,7 +62,7 @@ public class GameCanvas extends Canvas {
     private void fillBlock(Graphics g, Color color, Point point) {
         Color before = g.getColor();
         g.setColor(color);
-        g.fillRect((blockSize * point.x) + blockSize, (blockSize * point.y) + blockSize, 2*blockSize, 2*blockSize);
+        g.fillRect((blockSize * point.x) + blockSize, (blockSize * point.y) + blockSize, blockSize, blockSize);
         g.setColor(before);
     }
     

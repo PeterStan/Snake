@@ -25,11 +25,13 @@ public class SimpleGame implements Game {
     
     private final GameLogic logic;
     
-    private final Timer gameTimer;
+    private Timer gameTimer;
     
-    private final int runSpeed = 60;
+    private final int runSpeed = 300;
     
-    private final SnakeTask task;
+    private SnakeTask task;
+    
+    private boolean paused = false;
     
     // Implementation
     
@@ -90,5 +92,26 @@ public class SimpleGame implements Game {
             System.out.println("runinng: " + running);
           
     }	
+    
+    public void pauseGame(){
+    	this.gameTimer.cancel();
+    	this.task.cancel();
+    	setPaused(true);
+    }
+    
+    public void resumeGame(){
+    	this.gameTimer = new Timer();
+    	this.task = new SnakeTask(this);
+    	this.gameTimer.schedule(task, 0, runSpeed);
+    	setPaused(false);
+    }
+
+	public boolean isPaused() {
+		return paused;
+	}
+
+	public void setPaused(boolean paused) {
+		this.paused = paused;
+	}
     
 }

@@ -43,7 +43,7 @@ public class SimpleApple implements Apple {
 	@Override
 	public void newApple() {
 		a = new Point(NumberUtils.randomInt(0, board.getWidth()), NumberUtils.randomInt(0, board.getHeight()));
-
+		//TODO apple doesnt spawn under snake
 	}
 
 }
