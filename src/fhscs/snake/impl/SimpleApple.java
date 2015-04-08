@@ -28,22 +28,28 @@ public class SimpleApple implements Apple {
 		return a;
 	}
 
-	/**
-	 * checks whether snake eats apple
-	 * @param snake
-	 */
 	public void eatApple(Snake snake) {
 		if(snake.getHead().equals(a)){
 			snake.elongate(2);
 			board.incrementScore();
-			newApple();
+			newApple(snake);
 		}
 	}
 
 	@Override
 	public void newApple() {
 		a = new Point(NumberUtils.randomInt(0, board.getWidth()), NumberUtils.randomInt(0, board.getHeight()));
-		//TODO apple doesnt spawn under snake
 	}
+	
+	@Override
+	public void newApple(Snake snake) {
+		a = new Point(NumberUtils.randomInt(0, board.getWidth()), NumberUtils.randomInt(0, board.getHeight()));
+		for(Point p: snake.getLocations()){
+			if(p.equals(a))
+				newApple();
+		}	
+	}
+	
+	
 
 }

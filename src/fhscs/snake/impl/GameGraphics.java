@@ -17,7 +17,7 @@ public class GameGraphics {
     
     public GameGraphics(Game game) {
         this.frame = new JFrame();
-        frame.setSize(new Dimension((GameCanvas.blockSize * game.getBoard().getWidth() + 5*GameCanvas.blockSize),(GameCanvas.blockSize * game.getBoard().getHeight() + 8*GameCanvas.blockSize)));
+        frame.setSize(new Dimension((GameCanvas.blockSize * game.getBoard().getWidth() + 5*GameCanvas.blockSize),(GameCanvas.blockSize * game.getBoard().getHeight() + 6*GameCanvas.blockSize)));
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setFocusable(true);
@@ -29,6 +29,10 @@ public class GameGraphics {
         canvas.addKeyListener(keyListener);
         canvas.setFocusable(true);
         canvas.setVisible(true);
+    }
+    
+    public GameCanvas getCanvas(){
+		return canvas;	
     }
     
     /**

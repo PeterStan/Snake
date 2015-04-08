@@ -27,7 +27,7 @@ public class SimpleGame implements Game {
     
     private Timer gameTimer;
     
-    private final int runSpeed = 300;
+    private final int runSpeed = 100;
     
     private SnakeTask task;
     

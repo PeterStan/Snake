@@ -22,20 +22,34 @@ public class GameCanvas extends Canvas {
         this.setBackground(palette.BACKGROUND);
     }
     
+    public ColorPalette getPalette(){
+		return palette;
+    }
+    
     @Override
     public void paint(Graphics g) {
         drawApple(g);
         drawSnake(g);
         drawBoard(g);
+       // System.out.println("rep");
     }
     
     /**
      * Draws the {@link Snake}
      */
     private void drawSnake(Graphics g) {
-        for (Point p : game.getSnake().getLocations()) {
+      /*
+    	for (Point p : game.getSnake().getLocations()) {
             fillBlock(g, palette.SNAKE, p);
         }
+        */
+    	Point p = new Point(game.getSnake().getHead());
+    	fillBlock(g, Color.BLACK, p);
+    	
+    	for(int i = 0; i < game.getSnake().getLocations().size()-1; i++){
+    		p = game.getSnake().getLocations().get(i);
+    		fillBlock(g, palette.SNAKE, p);
+    	}
     }
     
     /**
@@ -50,7 +64,7 @@ public class GameCanvas extends Canvas {
      * Draws the Board
      */
     private void drawBoard(Graphics g){
-    	g.drawRect(blockSize, blockSize, (game.getBoard().getWidth()*(blockSize))+(2*blockSize), (game.getBoard().getHeight()*(blockSize))+(2*blockSize));
+    	g.drawRect(blockSize, blockSize, (game.getBoard().getWidth()*(blockSize))+(blockSize), (game.getBoard().getHeight()*(blockSize))+(blockSize));
     	
     	g.drawString("Score", (game.getBoard().getWidth()*blockSize) - 2*blockSize, (game.getBoard().getHeight()*blockSize) - 2*blockSize);
     	g.drawString(String.valueOf(game.getBoard().getScore()), (game.getBoard().getWidth()*blockSize), (game.getBoard().getHeight()*blockSize));

@@ -70,6 +70,21 @@ public class SimpleSnake implements Snake {
         //System.out.println(points + "\n");
 
     }
+    
+    public Movement getReverse(){
+    	switch(movement) {
+    		case NORTH:
+            	return Movement.SOUTH;
+    		case SOUTH:
+	            return Movement.NORTH;
+    		case EAST:
+	        	return Movement.WEST;
+    		case WEST:
+	           return Movement.EAST;
+    		default:
+    			return movement;
+    	}
+    }
 
     @Override
     public Movement getMovement() {

@@ -16,8 +16,8 @@ public class SnakeKeyListener implements KeyListener {
     
     @Override
     public void keyPressed(KeyEvent e) {
-        Movement movement = getMovement(e.getKeyCode());
-        if(movement != null) {
+        Movement movement = getMovement(e.getKeyCode()); //                TODO vvvvvvvvvvvvvv
+        if(movement != null && !game.isPaused() && movement != game.getSnake().getReverse()) {
             game.getSnake().setMovement(movement);
         }
         if(e.getKeyCode() == KeyEvent.VK_P){

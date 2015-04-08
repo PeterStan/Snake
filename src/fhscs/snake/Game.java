@@ -41,12 +41,26 @@ public interface Game {
      */
     void setRunning(boolean running);
     
+    /**
+     * pauses the game
+     */
     void pauseGame();
     
+    /**
+     * unpauses the game
+     */
     void resumeGame();
     
+    /**
+     * 
+     * @return state of paused
+     */
     boolean isPaused();
     
+    /**
+     * 
+     * @param paused
+     */
     void setPaused(boolean paused);
     
 }

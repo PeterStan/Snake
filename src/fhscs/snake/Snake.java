@@ -78,5 +78,11 @@ public interface Snake {
      * @return true if snake ate snake
      */
 	boolean checkSnake(Point head);
+
+	/**
+	 * 
+	 * @return opposite of the snakes movement
+	 */
+	Movement getReverse();
     
 }
