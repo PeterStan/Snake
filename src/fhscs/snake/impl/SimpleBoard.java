@@ -83,7 +83,7 @@ public class SimpleBoard implements Board {
 		BufferedReader log;
 		String score = null;
 		try {
-			log = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\Log\\ScoreLog.sn"));
+			log = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\attributes\\log\\ScoreLog.sn"));
 			score = log.readLine();
 			log.close();
 		} catch (IOException e) {
