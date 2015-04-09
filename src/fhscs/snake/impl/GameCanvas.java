@@ -4,8 +4,12 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 
 import fhscs.snake.Game;
 import fhscs.snake.Snake;
@@ -53,7 +57,7 @@ public class GameCanvas extends Canvas {
         drawBoard(buffG);
         g.drawImage(buffImg, 0, 0, this);
         
-       // System.out.println("rep");
+       // System.out.println("repaint");
     }
     
     /**
@@ -81,14 +85,15 @@ public class GameCanvas extends Canvas {
     private void drawBackground(Graphics g){
     	buffG.setColor(Color.LIGHT_GRAY);
         buffG.fillRect(0, 0, 600, 600);
-        buffG.setColor(Color.WHITE);
     }
     
     /**
      * Draws the Apple
      */
     private void drawApple(Graphics g) {
-        fillBlock(g, palette.APPLE, game.getApple().getLocation());
+        //fillBlock(g, palette.APPLE, game.getApple().getLocation());
+    	BufferedImage apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
+    	drawImage((Image) apple, (int)game.getApple().getLocation().getX(), (int)game.getApple().getLocation().getY(), this.getPalette().BACKGROUND, this);
     }
     
     /**
