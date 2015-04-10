@@ -4,10 +4,10 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.io.IOException;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -36,7 +36,6 @@ public class GameCanvas extends Canvas {
         dim.setSize(600, 600);
         buffImg = new BufferedImage(dim.width, dim.height, BufferedImage.TYPE_INT_RGB);
         buffG = buffImg.getGraphics();
-        
         
         //this.setBackground(palette.BACKGROUND);
     }
@@ -88,6 +87,23 @@ public class GameCanvas extends Canvas {
      */
     private void drawBackground(Graphics g){
     	buffG.setColor(Color.LIGHT_GRAY);
+         buffG.fillRect(0, 0, dim.width, dim.height);
+    	/*
+		try {
+			dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
+		} catch (IOException e) {
+			System.out.println("Image File Not Found");
+			e.printStackTrace();
+		}
+		g.drawImage(dirt, 0, 0, null);
+    	
+    	for(int x = 0; x < dim.width; x += dirt.getWidth()){
+    		for(int y = 0; y < dim.height; y += dirt.getHeight() ){
+    			g.drawImage(dirt, x, y, null);
+    		}
+    	}
+    	*/
+        
     }
     
     /**
@@ -95,6 +111,14 @@ public class GameCanvas extends Canvas {
      */
     private void drawApple(Graphics g) {
         //fillBlock(g, palette.APPLE, game.getApple().getLocation());
+    	BufferedImage apple = null;
+		try {
+			apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
+		} catch (IOException e) {
+			System.out.println("Image File Not Found");
+			e.printStackTrace();
+		}
+    	g.drawImage(apple, (int)(game.getApple().getLocation().getX()*blockSize)+blockSize, (int)(game.getApple().getLocation().getY()*blockSize)+blockSize, blockSize,blockSize, null);
     }
     
     /**
