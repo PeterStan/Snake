@@ -4,7 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
+import java.io.IOException;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,15 +22,19 @@ public class GameCanvas extends Canvas {
     
     private BufferedImage buffImg;
     private Graphics buffG;
-    private Dimension dim;
+    private Dimension dim = new Dimension();
+    
+    private BufferedImage dirt;
+    private BufferedImage apple;
+    private BufferedImage snake;
     
     public static final int blockSize = 15;
     
     public GameCanvas(Game game){
         this.game = game;
         this.palette = new ColorPalette();
-        dim = this.getSize();
-        buffImg = new BufferedImage(600,600, BufferedImage.TYPE_INT_RGB);
+        dim.setSize(600, 600);
+        buffImg = new BufferedImage(dim.width, dim.height, BufferedImage.TYPE_INT_RGB);
         buffG = buffImg.getGraphics();
         
         
@@ -84,7 +88,6 @@ public class GameCanvas extends Canvas {
      */
     private void drawBackground(Graphics g){
     	buffG.setColor(Color.LIGHT_GRAY);
-        buffG.fillRect(0, 0, 600, 600);
     }
     
     /**
@@ -92,8 +95,6 @@ public class GameCanvas extends Canvas {
      */
     private void drawApple(Graphics g) {
         //fillBlock(g, palette.APPLE, game.getApple().getLocation());
-    	BufferedImage apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
-    	drawImage((Image) apple, (int)game.getApple().getLocation().getX(), (int)game.getApple().getLocation().getY(), this.getPalette().BACKGROUND, this);
     }
     
     /**
