@@ -50,6 +50,7 @@ public class SimpleGame implements Game {
         this.task = new SnakeTask(this);
         
         this.graphics = new GameGraphics(this);
+          
     }
     
     public GameGraphics getGraphicsController() {

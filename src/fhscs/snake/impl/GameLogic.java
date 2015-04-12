@@ -18,6 +18,7 @@ public class GameLogic implements Runnable {
     
     @Override
     public void run() {
+    	
         game.getSnake().move();
         Point head = game.getSnake().getHead();
         game.getApple().eatApple(game.getSnake());

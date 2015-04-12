@@ -45,9 +45,7 @@ public class GameCanvas extends Canvas {
 			System.out.println("Image File Not Found");
 			e.printStackTrace();
 		}
-        System.out.println("create canvas");
         
-        //this.setBackground(palette.BACKGROUND);
     }
     
     public ColorPalette getPalette(){
