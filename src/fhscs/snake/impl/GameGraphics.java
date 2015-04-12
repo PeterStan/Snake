@@ -17,18 +17,21 @@ public class GameGraphics {
     
     public GameGraphics(Game game) {
         this.frame = new JFrame();
+        this.canvas = new GameCanvas(game);
         frame.setSize(new Dimension((GameCanvas.blockSize * game.getBoard().getWidth() + 5*GameCanvas.blockSize),(GameCanvas.blockSize * game.getBoard().getHeight() + 6*GameCanvas.blockSize)));
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setFocusable(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        this.canvas = new GameCanvas(game);
+        
         frame.add(canvas);
         this.keyListener = new SnakeKeyListener(game);
         canvas.addKeyListener(keyListener);
         canvas.setFocusable(true);
         canvas.setVisible(true);
+        canvas.paint(canvas.getGraphics());
+        
     }
     
     public GameCanvas getCanvas(){
@@ -42,6 +45,7 @@ public class GameGraphics {
         canvas.invalidate();
         canvas.validate();
         canvas.repaint();
+        
     }
    
     public void closeWin(){

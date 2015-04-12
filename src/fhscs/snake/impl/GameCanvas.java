@@ -37,6 +37,16 @@ public class GameCanvas extends Canvas {
         buffImg = new BufferedImage(dim.width, dim.height, BufferedImage.TYPE_INT_RGB);
         buffG = buffImg.getGraphics();
         
+
+        try {
+			//dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
+			apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
+		} catch (IOException e) {
+			System.out.println("Image File Not Found");
+			e.printStackTrace();
+		}
+        System.out.println("create canvas");
+        
         //this.setBackground(palette.BACKGROUND);
     }
     
@@ -44,23 +54,16 @@ public class GameCanvas extends Canvas {
 		return palette;
     }
     
+    
     @Override
-    public void paint(Graphics g) {
-       
-    	/*
-    	drawApple(g);
-    	drawSnake(g);
-    	drawBoard(g);
-    	*/
-    	
+    public void paint(Graphics g) {;
+    
     	drawBackground(buffG);
         drawBoard(buffG);
     	drawApple(buffG);
         drawSnake(buffG);
-        drawBoard(buffG);
-        g.drawImage(buffImg, 0, 0, this);
         
-       // System.out.println("repaint");
+        g.drawImage(buffImg, 0, 0, this);
     }
     
     /**
@@ -72,8 +75,10 @@ public class GameCanvas extends Canvas {
             fillBlock(g, palette.SNAKE, p);
         }
         */
+    	
     	Point p = new Point(game.getSnake().getHead());
     	fillBlock(g, Color.BLACK, p);
+    	
     	
     	for(int i = 0; i < game.getSnake().getLocations().size()-1; i++){
     		p = game.getSnake().getLocations().get(i);
@@ -86,17 +91,15 @@ public class GameCanvas extends Canvas {
      * draws the background
      */
     private void drawBackground(Graphics g){
+    	
     	buffG.setColor(Color.LIGHT_GRAY);
          buffG.fillRect(0, 0, dim.width, dim.height);
-    	/*
-		try {
-			dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
-		} catch (IOException e) {
-			System.out.println("Image File Not Found");
-			e.printStackTrace();
-		}
-		g.drawImage(dirt, 0, 0, null);
     	
+		/*
+		g.drawImage(dirt, 0, 0, null);
+    	*/
+         //TODO optimize this
+    	/*
     	for(int x = 0; x < dim.width; x += dirt.getWidth()){
     		for(int y = 0; y < dim.height; y += dirt.getHeight() ){
     			g.drawImage(dirt, x, y, null);
@@ -110,15 +113,7 @@ public class GameCanvas extends Canvas {
      * Draws the Apple
      */
     private void drawApple(Graphics g) {
-        //fillBlock(g, palette.APPLE, game.getApple().getLocation());
-    	BufferedImage apple = null;
-		try {
-			apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
-		} catch (IOException e) {
-			System.out.println("Image File Not Found");
-			e.printStackTrace();
-		}
-    	g.drawImage(apple, (int)(game.getApple().getLocation().getX()*blockSize)+blockSize, (int)(game.getApple().getLocation().getY()*blockSize)+blockSize, blockSize,blockSize, null);
+        g.drawImage(apple, (int)(game.getApple().getLocation().getX()*blockSize)+blockSize, (int)(game.getApple().getLocation().getY()*blockSize)+blockSize, blockSize,blockSize, null);
     }
     
     /**
