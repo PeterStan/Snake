@@ -27,6 +27,7 @@ public class GameCanvas extends Canvas {
     private BufferedImage dirt;
     private BufferedImage apple;
     private BufferedImage snake;
+    private BufferedImage snakehead;
     
     public static final int blockSize = 15;
     
@@ -39,8 +40,10 @@ public class GameCanvas extends Canvas {
         
 
         try {
-			//dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
+			dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
 			apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
+			snake = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snake.png"));
+			snakehead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead.png"));
 		} catch (IOException e) {
 			System.out.println("Image File Not Found");
 			e.printStackTrace();
@@ -81,6 +84,7 @@ public class GameCanvas extends Canvas {
     	for(int i = 0; i < game.getSnake().getLocations().size()-1; i++){
     		p = game.getSnake().getLocations().get(i);
     		fillBlock(g, palette.SNAKE, p);
+    		g.drawImage(snake, (int)(game.getSnake().getLocations().get(i).getX()*blockSize)+blockSize, (int)(game.getSnake().getLocations().get(i).getY()*blockSize)+blockSize, blockSize,blockSize, null);
     	}
     }
     
@@ -89,13 +93,13 @@ public class GameCanvas extends Canvas {
      * draws the background
      */
     private void drawBackground(Graphics g){
-    	
+    	/*
     	buffG.setColor(Color.LIGHT_GRAY);
          buffG.fillRect(0, 0, dim.width, dim.height);
-    	
-		/*
-		g.drawImage(dirt, 0, 0, null);
     	*/
+		
+		g.drawImage(dirt, 0, 0, null);
+    	
          //TODO optimize this
     	/*
     	for(int x = 0; x < dim.width; x += dirt.getWidth()){
@@ -119,7 +123,7 @@ public class GameCanvas extends Canvas {
      * Draws the Board
      */
     private void drawBoard(Graphics g){
-    	g.setColor(Color.BLACK);
+    	g.setColor(Color.WHITE);
     	
     	g.drawRect(blockSize, blockSize, (game.getBoard().getWidth()*(blockSize))+(blockSize), (game.getBoard().getHeight()*(blockSize))+(blockSize));
     	

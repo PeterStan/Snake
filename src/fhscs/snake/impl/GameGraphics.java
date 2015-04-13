@@ -19,7 +19,7 @@ public class GameGraphics {
         this.frame = new JFrame();
         this.canvas = new GameCanvas(game);
         frame.setSize(new Dimension((GameCanvas.blockSize * game.getBoard().getWidth() + 5*GameCanvas.blockSize),(GameCanvas.blockSize * game.getBoard().getHeight() + 6*GameCanvas.blockSize)));
-        frame.setResizable(false);
+        //frame.setResizable(false);
         frame.setVisible(true);
         frame.setFocusable(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

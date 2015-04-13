@@ -66,7 +66,7 @@ public class SimpleBoard implements Board {
 		//TODO this
 		PrintWriter outt;
 		try {
-			outt = new PrintWriter(new FileWriter(System.getProperty("user.dir") + "\\Log\\ScoreLog.sn"));
+			outt = new PrintWriter(new FileWriter(System.getProperty("user.dir") + "\\attributes\\Log\\ScoreLog.sn"));
 			outt.println(score);
 			outt.close();
 		} catch (IOException e) {
