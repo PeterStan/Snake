@@ -79,11 +79,6 @@ public class GameCanvas extends Canvas {
      * Draws the {@link Snake}
      */
     private void drawSnake(Graphics g) {
-      /*
-    	for (Point p : game.getSnake().getLocations()) {
-            fillBlock(g, palette.SNAKE, p);
-        }
-        */
     	
     	Point p = new Point(game.getSnake().getHead());
     	
