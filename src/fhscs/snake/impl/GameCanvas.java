@@ -4,7 +4,6 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import fhscs.snake.Game;
-import fhscs.snake.Movement;
 import fhscs.snake.Snake;
 
 @SuppressWarnings("serial")
