@@ -108,12 +108,12 @@ public class SimpleSnake implements Snake {
 
     @Override
     public void elongate() {
-        elongate(1);
+        elongate(2);
     }
 
     @Override
     public void shorten() {
-        shorten(1);
+        shorten(2);
     }
 
     @Override

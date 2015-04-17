@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import fhscs.snake.Game;
+import fhscs.snake.Movement;
 import fhscs.snake.Snake;
 
 @SuppressWarnings("serial")
@@ -27,7 +29,10 @@ public class GameCanvas extends Canvas {
     private BufferedImage dirt;
     private BufferedImage apple;
     private BufferedImage snake;
-    private BufferedImage snakehead;
+    private BufferedImage northHead;
+    private BufferedImage eastHead;
+    private BufferedImage southHead;
+    private BufferedImage westHead;
     
     public static final int blockSize = 15;
     
@@ -43,7 +48,10 @@ public class GameCanvas extends Canvas {
 			dirt = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\dirt1.jpg"));
 			apple = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\apple.png"));
 			snake = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snake.png"));
-			snakehead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead.png"));
+			northHead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead_north.png"));
+			eastHead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead_east.png"));
+			southHead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead_south.png"));
+			westHead = ImageIO.read(new File(System.getProperty("user.dir") + "\\attributes\\snakehead_west.png"));
 		} catch (IOException e) {
 			System.out.println("Image File Not Found");
 			e.printStackTrace();
@@ -78,7 +86,26 @@ public class GameCanvas extends Canvas {
         */
     	
     	Point p = new Point(game.getSnake().getHead());
-    	fillBlock(g, Color.BLACK, p);
+    	
+    	switch(game.getSnake().getMovement()) {
+		case NORTH:
+			g.drawImage(northHead, (int)(p.getX()+1)*blockSize, (int)(p.getY()+1)*blockSize, blockSize,blockSize, null);
+			break;
+		case SOUTH:
+			g.drawImage(southHead, (int)(p.getX()+1)*blockSize, (int)(p.getY()+1)*blockSize, blockSize,blockSize, null);
+			break;
+		case EAST:
+			g.drawImage(eastHead, (int)(p.getX()+1)*blockSize, (int)(p.getY()+1)*blockSize, blockSize,blockSize, null);
+			break;
+		case WEST:
+			g.drawImage(westHead, (int)(p.getX()+1)*blockSize, (int)(p.getY()+1)*blockSize, blockSize,blockSize, null);
+			break;
+		default:
+			g.drawImage(northHead, (int)(p.getX()+1)*blockSize, (int)(p.getY()+1)*blockSize, blockSize,blockSize, null);
+			break;
+    	}
+    	
+
     	
     	
     	for(int i = 0; i < game.getSnake().getLocations().size()-1; i++){
